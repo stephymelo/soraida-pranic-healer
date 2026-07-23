@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64" role="img" aria-label="Soraida Henao">
+  <g transform="translate(32 33) scale(.66) translate(-50 -52.5)">
+    <g stroke="#B58326" stroke-width=".5" stroke-opacity=".4" stroke-linejoin="round">
+      <polygon points="30,15 50,30 70,15" fill="#F3C63E"/>
+      <polygon points="50,30 30,15 13,40" fill="#FBE384"/>
+      <polygon points="50,30 70,15 87,40" fill="#F1C240"/>
+      <polygon points="50,30 13,40 50,55" fill="#F7D257"/>
+      <polygon points="50,30 87,40 50,55" fill="#E3AC30"/>
+      <polygon points="13,40 27,63 50,55" fill="#E8B637"/>
+      <polygon points="87,40 73,63 50,55" fill="#CE9021"/>
+      <polygon points="27,63 50,90 50,55" fill="#D9A22A"/>
+      <polygon points="73,63 50,90 50,55" fill="#BE7C1A"/>
+    </g>
+    <polygon points="34,20 42,27 29,29" fill="#FFFDF3" opacity=".5"/>
+    <g fill="#FFF8E1" fill-opacity=".5" stroke="#FFFBEE" stroke-opacity=".7" stroke-width="1">
+      <polygon points="50,38 37.5,59 62.5,59"/>
+      <polygon points="50,68 37.5,47 62.5,47"/>
+    </g>
+    <polygon points="50,30 30,15 13,40 27,63 50,90 73,63 87,40 70,15" fill="none" stroke="#94600E" stroke-width="2" stroke-linejoin="round"/>
+  </g>
+</svg>

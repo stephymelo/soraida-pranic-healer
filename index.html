@@ -3,9 +3,12 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Soraida Henao · Sanación Pránica, Reiki y Meditación</title>
-<meta name="description" content="Un espacio de bienestar, armonía y transformación interior. Sesiones personalizadas de sanación pránica, reiki, meditación guiada y aromaterapia con Soraida Henao." />
-<link rel="icon" type="image/png" href="./icon-sori.png" />
+<title>Casa Del Alma · Sanación Pránica, Reiki y Meditación</title>
+<meta name="description" content="Casa Del Alma — un lugar donde el alma recuerde su origen. Sesiones personalizadas de sanación pránica, reiki, meditación guiada y aromaterapia con Soraida Henao." />
+<link rel="icon" type="image/svg+xml" href="./favicon.svg" />
+<link rel="icon" type="image/png" sizes="32x32" href="./favicon-32.png" />
+<link rel="icon" type="image/png" sizes="256x256" href="./favicon.png" />
+<link rel="apple-touch-icon" href="./apple-touch-icon.png" />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..600;1,9..144,300..500&family=Marcellus&family=Mulish:wght@300;400;500;600&display=swap" rel="stylesheet" />
@@ -64,8 +67,10 @@
   /* ---------- NAV ---------- */
   header{position:absolute;inset:0 0 auto 0;z-index:20}
   nav{display:flex;align-items:center;justify-content:space-between;padding:1.6rem 0}
-  .brand{font-family:"Fraunces",serif;font-size:1.5rem;color:#FBF7F0;letter-spacing:.02em}
-  .brand small{display:block;font-family:"Marcellus",serif;font-size:.56rem;letter-spacing:.42em;text-transform:uppercase;opacity:.85;margin-top:.15em}
+  .brand{display:inline-flex;align-items:center;gap:.6rem;color:#FBF7F0}
+  .brand-mark{width:40px;height:40px;flex:none;filter:drop-shadow(0 4px 10px rgba(148,96,14,.4))}
+  .brand-text{font-family:"Fraunces",serif;font-size:1.4rem;line-height:1;letter-spacing:.02em}
+  .brand small{display:block;font-family:"Marcellus",serif;font-size:.54rem;letter-spacing:.38em;text-transform:uppercase;opacity:.85;margin-top:.28em}
   .nav-links{display:flex;align-items:center;gap:2.2rem}
   .nav-links a{color:rgba(251,247,240,.92);font-size:.9rem;letter-spacing:.02em;position:relative;padding:.2em 0}
   .nav-links a::after{content:"";position:absolute;left:0;bottom:-2px;width:0;height:1px;background:currentColor;transition:width .4s}
@@ -90,6 +95,7 @@
   .hero .eyebrow{color:var(--blush)}
   .hero h1{font-size:clamp(2.8rem,7vw,5.6rem);margin:.35em 0 .5em;font-weight:300}
   .hero h1 em{font-style:italic;color:var(--blush)}
+  .hero .slogan{font-family:"Fraunces",serif;font-style:italic;font-weight:300;font-size:clamp(1.15rem,2vw,1.55rem);color:var(--blush);margin:0 0 1.3rem;letter-spacing:.01em}
   .hero p.lead{font-size:clamp(1.05rem,1.6vw,1.28rem);max-width:34em;color:rgba(251,247,240,.92);font-weight:300}
   .hero-actions{display:flex;flex-wrap:wrap;gap:1rem;margin-top:2.4rem}
   .scroll-cue{position:absolute;bottom:2rem;left:50%;transform:translateX(-50%);font-family:"Marcellus",serif;letter-spacing:.3em;font-size:.62rem;text-transform:uppercase;color:rgba(251,247,240,.75);display:flex;flex-direction:column;align-items:center;gap:.6rem}
@@ -181,7 +187,8 @@
 
   /* ---------- FOOTER ---------- */
   footer{background:var(--ink);color:rgba(251,247,240,.8);text-align:center;padding:3.4rem 0}
-  footer .brand{color:#FBF7F0;display:inline-block}
+  footer .brand{color:#FBF7F0;justify-content:center}
+  footer .fslogan{font-family:"Fraunces",serif;font-style:italic;color:var(--blush);font-size:1.05rem;margin-top:1rem}
   footer .fnav{display:flex;gap:1.6rem;justify-content:center;margin:1.4rem 0;flex-wrap:wrap}
   footer .fnav a{font-size:.9rem;opacity:.8}
   footer .fnav a:hover{opacity:1}
@@ -215,7 +222,7 @@
 
 <header>
   <nav class="wrap">
-    <a href="#top" class="brand reveal-load d1">Soraida Henao<small>Bienestar &amp; Sanación</small></a>
+    <a href="#top" class="brand reveal-load d1"><img class="brand-mark" src="./favicon.svg" alt="" /><span class="brand-text">Casa Del Alma<small>Bienestar &amp; Sanación</small></span></a>
     <div class="nav-links reveal-load d2">
       <a href="#sobre">Sobre mí</a>
       <a href="#servicios">Servicios</a>
@@ -235,7 +242,8 @@
     <div class="hero-inner">
       <p class="eyebrow reveal-load d2">Sanación Pránica · Reiki · Meditación</p>
       <h1 class="reveal-load d3">Un espacio para <em>respirar</em>,<br/>escucharte y reconectar</h1>
-      <p class="lead reveal-load d4">Bienvenido a un espacio de bienestar, armonía y transformación interior. Te acompaño con respeto, compasión y presencia en tu camino hacia el equilibrio integral.</p>
+      <p class="slogan reveal-load d4">Un lugar donde el alma recuerde su origen.</p>
+      <p class="lead reveal-load d5">Bienvenido a un espacio de bienestar, armonía y transformación interior. Te acompaño con respeto, compasión y presencia en tu camino hacia el equilibrio integral.</p>
       <div class="hero-actions reveal-load d5">
         <a href="#contacto" class="btn btn--solid">Agenda tu sesión</a>
         <a href="#servicios" class="btn btn--ghost">Conoce los servicios</a>
@@ -377,14 +385,15 @@
 
 <footer>
   <div class="wrap">
-    <a href="#top" class="brand">Soraida Henao<small>Bienestar &amp; Sanación</small></a>
+    <a href="#top" class="brand"><img class="brand-mark" src="./favicon.svg" alt="" /><span class="brand-text">Casa Del Alma<small>Bienestar &amp; Sanación</small></span></a>
+    <p class="fslogan">Un lugar donde el alma recuerde su origen.</p>
     <div class="fnav">
       <a href="#sobre">Sobre mí</a>
       <a href="#servicios">Servicios</a>
       <a href="#sesion">La sesión</a>
       <a href="#contacto">Contacto</a>
     </div>
-    <small>© 2026 Soraida Henao · Bienestar, armonía y transformación interior</small>
+    <small>© 2026 Casa Del Alma · Soraida Henao · Bienestar, armonía y transformación interior</small>
   </div>
 </footer>
 
