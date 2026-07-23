@@ -1,38 +1,398 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Personal Landing Page</title>
-    <link rel="stylesheet" href="styles.css">
-    <link rel="icon" type="image/png" href="./icon-sori.png">
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Soraida Henao · Sanación Pránica, Reiki y Meditación</title>
+<meta name="description" content="Un espacio de bienestar, armonía y transformación interior. Sesiones personalizadas de sanación pránica, reiki, meditación guiada y aromaterapia con Soraida Henao." />
+<link rel="icon" type="image/png" href="./icon-sori.png" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..600;1,9..144,300..500&family=Marcellus&family=Mulish:wght@300;400;500;600&display=swap" rel="stylesheet" />
+<style>
+  :root{
+    --ivory:#F4EEE4;
+    --paper:#FBF7F0;
+    --sand:#EAE0D2;
+    --sage:#94A187;
+    --sage-deep:#6D7A61;
+    --clay:#BE8A6E;
+    --clay-deep:#A06E52;
+    --blush:#E6C9BB;
+    --lavender:#B7AAC7;
+    --ink:#39342C;
+    --muted:#6E6559;
+    --line:rgba(57,52,44,.14);
+    --shadow:0 24px 60px -30px rgba(57,52,44,.45);
+    --r:22px;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{
+    font-family:"Mulish",sans-serif;
+    color:var(--ink);
+    background:var(--ivory);
+    line-height:1.65;
+    -webkit-font-smoothing:antialiased;
+    overflow-x:hidden;
+  }
+  h1,h2,h3{font-family:"Fraunces",serif;font-weight:400;line-height:1.08;letter-spacing:-.01em}
+  .eyebrow{
+    font-family:"Marcellus",serif;
+    text-transform:uppercase;
+    letter-spacing:.34em;
+    font-size:.72rem;
+    color:var(--clay-deep);
+  }
+  a{color:inherit;text-decoration:none}
+  img{display:block;max-width:100%}
+  .wrap{width:min(1180px,92vw);margin-inline:auto}
+  .btn{
+    display:inline-flex;align-items:center;gap:.55em;
+    font-family:"Marcellus",serif;letter-spacing:.06em;
+    font-size:.95rem;padding:.95em 1.9em;border-radius:100px;
+    transition:transform .4s cubic-bezier(.2,.8,.2,1),box-shadow .4s,background .4s;
+    cursor:pointer;border:1px solid transparent;white-space:nowrap;
+  }
+  .btn--solid{background:var(--sage-deep);color:#FBF7F0;box-shadow:0 14px 30px -14px rgba(109,122,97,.8)}
+  .btn--solid:hover{transform:translateY(-3px);box-shadow:0 22px 40px -16px rgba(109,122,97,.9);background:#5f6b55}
+  .btn--ghost{border-color:rgba(251,247,240,.6);color:#FBF7F0}
+  .btn--ghost:hover{background:rgba(251,247,240,.14);transform:translateY(-3px)}
+  .btn--ink{border-color:var(--line);color:var(--ink)}
+  .btn--ink:hover{background:var(--paper);transform:translateY(-3px);box-shadow:var(--shadow)}
+
+  /* ---------- NAV ---------- */
+  header{position:absolute;inset:0 0 auto 0;z-index:20}
+  nav{display:flex;align-items:center;justify-content:space-between;padding:1.6rem 0}
+  .brand{font-family:"Fraunces",serif;font-size:1.5rem;color:#FBF7F0;letter-spacing:.02em}
+  .brand small{display:block;font-family:"Marcellus",serif;font-size:.56rem;letter-spacing:.42em;text-transform:uppercase;opacity:.85;margin-top:.15em}
+  .nav-links{display:flex;align-items:center;gap:2.2rem}
+  .nav-links a{color:rgba(251,247,240,.92);font-size:.9rem;letter-spacing:.02em;position:relative;padding:.2em 0}
+  .nav-links a::after{content:"";position:absolute;left:0;bottom:-2px;width:0;height:1px;background:currentColor;transition:width .4s}
+  .nav-links a:hover::after{width:100%}
+  .nav-cta{padding:.6em 1.4em;border:1px solid rgba(251,247,240,.55);border-radius:100px;font-family:"Marcellus",serif;letter-spacing:.05em;font-size:.85rem;transition:background .4s}
+  .nav-cta:hover{background:rgba(251,247,240,.16)}
+
+  /* ---------- HERO ---------- */
+  .hero{position:relative;min-height:100svh;display:flex;align-items:center;color:#FBF7F0;isolation:isolate}
+  .hero-bg{position:absolute;inset:0;z-index:-2;
+    background:
+      linear-gradient(180deg,rgba(46,38,30,.55) 0%,rgba(58,44,32,.28) 40%,rgba(120,84,58,.42) 100%),
+      url("https://images.unsplash.com/photo-1506126613408-eca07ce68773?auto=format&fit=crop&w=1700&q=80") center/cover no-repeat;
+  }
+  .hero-bg::after{content:"";position:absolute;inset:0;
+    background:radial-gradient(120% 80% at 50% 120%,rgba(190,138,110,.5),transparent 60%);mix-blend-mode:soft-light}
+  .orb{position:absolute;border-radius:50%;filter:blur(8px);z-index:-1;opacity:.5;animation:float 16s ease-in-out infinite}
+  .orb.a{width:230px;height:230px;top:16%;right:8%;background:radial-gradient(circle at 30% 30%,rgba(230,201,187,.9),rgba(230,201,187,0));animation-delay:-3s}
+  .orb.b{width:180px;height:180px;bottom:18%;left:6%;background:radial-gradient(circle at 40% 40%,rgba(183,170,199,.85),rgba(183,170,199,0));animation-delay:-8s}
+  @keyframes float{0%,100%{transform:translateY(0) translateX(0)}50%{transform:translateY(-26px) translateX(14px)}}
+  .hero-inner{padding:8rem 0 6rem;max-width:820px}
+  .hero .eyebrow{color:var(--blush)}
+  .hero h1{font-size:clamp(2.8rem,7vw,5.6rem);margin:.35em 0 .5em;font-weight:300}
+  .hero h1 em{font-style:italic;color:var(--blush)}
+  .hero p.lead{font-size:clamp(1.05rem,1.6vw,1.28rem);max-width:34em;color:rgba(251,247,240,.92);font-weight:300}
+  .hero-actions{display:flex;flex-wrap:wrap;gap:1rem;margin-top:2.4rem}
+  .scroll-cue{position:absolute;bottom:2rem;left:50%;transform:translateX(-50%);font-family:"Marcellus",serif;letter-spacing:.3em;font-size:.62rem;text-transform:uppercase;color:rgba(251,247,240,.75);display:flex;flex-direction:column;align-items:center;gap:.6rem}
+  .scroll-cue span{width:1px;height:46px;background:linear-gradient(rgba(251,247,240,.75),transparent);animation:pulse 2.4s ease-in-out infinite}
+  @keyframes pulse{0%,100%{opacity:.3;transform:scaleY(.6)}50%{opacity:1;transform:scaleY(1)}}
+
+  /* staggered load */
+  .reveal-load{opacity:0;transform:translateY(26px);animation:rise 1s cubic-bezier(.2,.8,.2,1) forwards}
+  .d1{animation-delay:.15s}.d2{animation-delay:.35s}.d3{animation-delay:.55s}.d4{animation-delay:.75s}.d5{animation-delay:.95s}
+  @keyframes rise{to{opacity:1;transform:none}}
+
+  /* scroll reveal */
+  .reveal{opacity:0;transform:translateY(34px);transition:opacity 1s cubic-bezier(.2,.8,.2,1),transform 1s cubic-bezier(.2,.8,.2,1)}
+  .reveal.in{opacity:1;transform:none}
+
+  section{position:relative}
+  .sec{padding:clamp(5rem,10vw,9rem) 0}
+  .sec-head{max-width:40rem}
+  .sec-head h2{font-size:clamp(2rem,4.2vw,3.3rem);margin:.5rem 0 0;font-weight:300}
+
+  /* ---------- BIENVENIDA ---------- */
+  .welcome{background:linear-gradient(180deg,var(--ivory),var(--paper))}
+  .welcome-grid{display:grid;grid-template-columns:1fr 1fr;gap:clamp(2rem,5vw,5rem);align-items:center}
+  .welcome-media{position:relative}
+  .welcome-media img{width:100%;height:min(72vh,640px);object-fit:cover;border-radius:200px 200px 24px 24px;box-shadow:var(--shadow)}
+  .welcome-media .frame{position:absolute;inset:-14px;border:1px solid var(--line);border-radius:210px 210px 34px 34px;z-index:-1}
+  .welcome-media .tag{position:absolute;bottom:22px;left:-18px;background:var(--paper);padding:1rem 1.3rem;border-radius:16px;box-shadow:var(--shadow);font-family:"Fraunces",serif;font-style:italic;font-size:1rem;color:var(--sage-deep);max-width:14rem}
+  .welcome-text p{color:var(--muted);margin-top:1.3rem;font-size:1.05rem}
+  .welcome-text p.first{font-size:1.28rem;color:var(--ink);line-height:1.5}
+  .sign{font-family:"Fraunces",serif;font-style:italic;font-size:1.5rem;color:var(--clay-deep);margin-top:1.6rem}
+
+  /* ---------- SERVICIOS ---------- */
+  .services{background:var(--paper)}
+  .service-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.4rem;margin-top:3.2rem}
+  .card{background:var(--ivory);border-radius:var(--r);overflow:hidden;border:1px solid var(--line);transition:transform .5s cubic-bezier(.2,.8,.2,1),box-shadow .5s;display:flex;flex-direction:column}
+  .card:hover{transform:translateY(-8px);box-shadow:var(--shadow)}
+  .card-media{height:210px;overflow:hidden;position:relative}
+  .card-media img{width:100%;height:100%;object-fit:cover;transition:transform .9s cubic-bezier(.2,.8,.2,1)}
+  .card:hover .card-media img{transform:scale(1.07)}
+  .card-media.crystal{display:flex;align-items:center;justify-content:center;background:
+    radial-gradient(120% 120% at 30% 20%,#D9C7DD,transparent 60%),
+    radial-gradient(120% 120% at 80% 90%,#CFE0D0,transparent 55%),
+    linear-gradient(140deg,#E9DCE9,#D7E4DA)}
+  .card-body{padding:1.7rem 1.6rem 2rem}
+  .card-body .num{font-family:"Marcellus",serif;font-size:.72rem;letter-spacing:.28em;color:var(--clay);text-transform:uppercase}
+  .card-body h3{font-size:1.5rem;margin:.35rem 0 .5rem}
+  .card-body p{color:var(--muted);font-size:.98rem}
+  .cta-card{background:linear-gradient(135deg,var(--sage) 0%,var(--sage-deep) 100%);color:#FBF7F0;border:none;display:flex;flex-direction:column;justify-content:center;padding:2.4rem}
+  .cta-card h3{color:#FBF7F0;font-size:1.7rem}
+  .cta-card p{color:rgba(251,247,240,.9);margin:.6rem 0 1.4rem}
+
+  /* ---------- FILOSOFÍA quote band ---------- */
+  .band{position:relative;color:#FBF7F0;text-align:center;isolation:isolate}
+  .band-bg{position:absolute;inset:0;z-index:-1;
+    background:linear-gradient(180deg,rgba(58,52,44,.62),rgba(93,107,85,.6)),
+    url("https://images.unsplash.com/photo-1524863479829-916d8e77f114?auto=format&fit=crop&w=1700&q=80") center/cover fixed no-repeat}
+  .band .wrap{padding:clamp(5.5rem,11vw,9rem) 0}
+  .band blockquote{font-family:"Fraunces",serif;font-weight:300;font-size:clamp(1.6rem,3.6vw,2.9rem);line-height:1.28;max-width:20ch;margin-inline:auto}
+  .band blockquote em{font-style:italic;color:var(--blush)}
+  .band .who{margin-top:1.6rem;font-family:"Marcellus",serif;letter-spacing:.3em;text-transform:uppercase;font-size:.72rem;opacity:.9}
+
+  /* ---------- SESIÓN steps ---------- */
+  .steps{background:var(--ivory)}
+  .step-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.4rem;margin-top:3rem}
+  .step{padding:2.4rem 1.8rem;border-radius:var(--r);background:var(--paper);border:1px solid var(--line);text-align:center;transition:transform .5s}
+  .step:hover{transform:translateY(-6px)}
+  .step .ico{width:64px;height:64px;margin:0 auto 1.2rem;border-radius:50%;display:grid;place-items:center;background:radial-gradient(circle at 35% 30%,var(--blush),var(--clay));color:#fff}
+  .step h3{font-size:1.4rem;margin-bottom:.4rem}
+  .step p{color:var(--muted);font-size:.96rem}
+
+  /* ---------- NOTA disclaimer ---------- */
+  .note .wrap{max-width:820px;text-align:center}
+  .note-card{background:var(--sand);border-radius:var(--r);padding:clamp(2rem,5vw,3.2rem);border:1px solid var(--line)}
+  .note-card .eyebrow{color:var(--sage-deep)}
+  .note-card p{color:var(--muted);font-size:1.05rem;margin-top:.9rem}
+
+  /* ---------- CONTACTO ---------- */
+  .contact{background:linear-gradient(180deg,var(--paper),var(--sand))}
+  .contact-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:clamp(2rem,5vw,4.5rem);align-items:center}
+  .contact h2{font-size:clamp(2.2rem,4.5vw,3.4rem);font-weight:300}
+  .contact p.sub{color:var(--muted);margin-top:1rem;font-size:1.08rem;max-width:32em}
+  .contact-actions{display:flex;flex-wrap:wrap;gap:.9rem;margin-top:2rem}
+  .contact-list{list-style:none;display:flex;flex-direction:column;gap:1.1rem}
+  .contact-list li a{display:flex;align-items:center;gap:1rem;padding:1.15rem 1.4rem;background:var(--paper);border:1px solid var(--line);border-radius:16px;transition:transform .4s,box-shadow .4s}
+  .contact-list li a:hover{transform:translateX(6px);box-shadow:var(--shadow)}
+  .contact-list .ico{width:44px;height:44px;flex:none;border-radius:12px;display:grid;place-items:center;background:var(--ivory);color:var(--sage-deep)}
+  .contact-list .lbl{font-family:"Marcellus",serif;letter-spacing:.16em;text-transform:uppercase;font-size:.66rem;color:var(--clay);display:block}
+  .contact-list .val{font-size:1.02rem;color:var(--ink)}
+
+  /* ---------- FOOTER ---------- */
+  footer{background:var(--ink);color:rgba(251,247,240,.8);text-align:center;padding:3.4rem 0}
+  footer .brand{color:#FBF7F0;display:inline-block}
+  footer .fnav{display:flex;gap:1.6rem;justify-content:center;margin:1.4rem 0;flex-wrap:wrap}
+  footer .fnav a{font-size:.9rem;opacity:.8}
+  footer .fnav a:hover{opacity:1}
+  footer small{opacity:.55;font-size:.8rem;letter-spacing:.02em}
+
+  svg.ic{width:22px;height:22px;stroke:currentColor;fill:none;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round}
+
+  /* ---------- RESPONSIVE ---------- */
+  @media(max-width:900px){
+    .nav-links{display:none}
+    .welcome-grid,.contact-grid{grid-template-columns:1fr}
+    .welcome-media{order:-1;max-width:420px;margin-inline:auto}
+    .welcome-media img{height:56vh}
+    .service-grid,.step-grid{grid-template-columns:1fr 1fr}
+  }
+  @media(max-width:560px){
+    nav{padding:1.2rem 0}
+    .service-grid,.step-grid{grid-template-columns:1fr}
+    .band-bg{background-attachment:scroll}
+    .hero-inner{padding-top:7rem}
+    .welcome-media .tag{left:0}
+    .contact-list li a:hover{transform:none}
+  }
+  @media (prefers-reduced-motion:reduce){
+    *{animation:none!important;transition:none!important}
+    .reveal,.reveal-load{opacity:1;transform:none}
+  }
+</style>
 </head>
 <body>
-    <div class="container">
-        <div class="info-section">
-            <h2>Senior Beauty Consultant</h2>
-            <h1>Soraida <br/> Henao</h1>
-            
-            <div class="contact-links">
-                <a href="https://latitudesouthsales.com" target="_blank"><i class="material-icons">public</i> Latitude South Sales  <i class="material-icons iconsito">open_in_new</i></a>
-                <a href="tel:+1 561-338-9852"><i class="material-icons">phone</i> Main Office +1 561-338-9852</a>
-                <a href="tel:+1  908-758-6317"><i class="material-icons">phone</i> Direct +1  908-758-6317</a>
-                <a href="mailto:soraida@latitudesouthsales.com"><i class="material-icons">email</i>soraida@latitudesouthsales.com</a>
-            </div>
-        </div>
 
-        <div class="info-section-2">
-
-
-
-        <div class="profile-image">
-            <img src="./assets/IMG_3631.jpg" alt="sori">
-        </div>
-    
+<header>
+  <nav class="wrap">
+    <a href="#top" class="brand reveal-load d1">Soraida Henao<small>Bienestar &amp; Sanación</small></a>
+    <div class="nav-links reveal-load d2">
+      <a href="#sobre">Sobre mí</a>
+      <a href="#servicios">Servicios</a>
+      <a href="#sesion">La sesión</a>
+      <a href="#contacto">Contacto</a>
     </div>
-        
+    <a href="#contacto" class="nav-cta reveal-load d3">Agenda tu sesión</a>
+  </nav>
+</header>
+
+<!-- HERO -->
+<section class="hero" id="top">
+  <div class="hero-bg"></div>
+  <div class="orb a"></div>
+  <div class="orb b"></div>
+  <div class="wrap">
+    <div class="hero-inner">
+      <p class="eyebrow reveal-load d2">Sanación Pránica · Reiki · Meditación</p>
+      <h1 class="reveal-load d3">Un espacio para <em>respirar</em>,<br/>escucharte y reconectar</h1>
+      <p class="lead reveal-load d4">Bienvenido a un espacio de bienestar, armonía y transformación interior. Te acompaño con respeto, compasión y presencia en tu camino hacia el equilibrio integral.</p>
+      <div class="hero-actions reveal-load d5">
+        <a href="#contacto" class="btn btn--solid">Agenda tu sesión</a>
+        <a href="#servicios" class="btn btn--ghost">Conoce los servicios</a>
+      </div>
     </div>
+  </div>
+  <div class="scroll-cue"><span></span>Desliza</div>
+</section>
+
+<!-- BIENVENIDA / SOBRE MÍ -->
+<section class="sec welcome" id="sobre">
+  <div class="wrap welcome-grid">
+    <div class="welcome-media reveal">
+      <span class="frame"></span>
+      <img src="https://images.unsplash.com/photo-1545389336-cf090694435e?auto=format&fit=crop&w=1000&q=80" alt="Meditación en la naturaleza" loading="lazy" />
+      <span class="tag">“Cada ser humano puede encontrar paz y reconexión consigo mismo.”</span>
+    </div>
+    <div class="welcome-text reveal">
+      <p class="eyebrow">Mi propósito</p>
+      <div class="sec-head"><h2>Un camino de autoconocimiento y transformación</h2></div>
+      <p class="first">Mi nombre es Soraida y mi propósito es acompañarte con respeto, compasión y presencia en tu camino hacia el equilibrio integral.</p>
+      <p>Creo profundamente en la capacidad de cada ser humano para encontrar equilibrio, paz y una reconexión consigo mismo. Mi misión es ofrecer un espacio seguro, sereno y confidencial para detenerte, respirar, escucharte y reconectar con tu esencia.</p>
+      <p>Cada sesión es personalizada, integrando herramientas de sanación y bienestar según lo que tu momento necesite. Será un honor acompañarte en este camino.</p>
+      <p class="sign">Con cariño, Soraida.</p>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICIOS -->
+<section class="sec services" id="servicios">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <p class="eyebrow">Herramientas de sanación</p>
+      <h2>Sesiones personalizadas para tu bienestar</h2>
+    </div>
+    <div class="service-grid">
+      <article class="card reveal">
+        <div class="card-media"><img src="https://images.unsplash.com/photo-1591228127791-8e2eaef098d3?auto=format&fit=crop&w=900&q=80" alt="Meditación guiada" loading="lazy"></div>
+        <div class="card-body"><span class="num">01 · Serenidad</span><h3>Meditación guiada</h3><p>Un viaje pausado hacia la calma para aquietar la mente, soltar tensiones y volver al presente.</p></div>
+      </article>
+      <article class="card reveal">
+        <div class="card-media"><img src="https://images.unsplash.com/photo-1600334129128-685c5582fd35?auto=format&fit=crop&w=900&q=80" alt="Sanación pránica" loading="lazy"></div>
+        <div class="card-body"><span class="num">02 · Energía</span><h3>Sanación pránica</h3><p>Limpieza y equilibrio del campo energético para restaurar la vitalidad y la armonía interior.</p></div>
+      </article>
+      <article class="card reveal">
+        <div class="card-media"><img src="https://images.unsplash.com/photo-1512290923902-8a9f81dc236c?auto=format&fit=crop&w=900&q=80" alt="Reiki" loading="lazy"></div>
+        <div class="card-body"><span class="num">03 · Equilibrio</span><h3>Reiki</h3><p>Imposición suave de manos que canaliza energía vital para inducir una profunda relajación.</p></div>
+      </article>
+      <article class="card reveal">
+        <div class="card-media"><img src="https://images.unsplash.com/photo-1608571423902-eed4a5ad8108?auto=format&fit=crop&w=900&q=80" alt="Aromaterapia" loading="lazy"></div>
+        <div class="card-body"><span class="num">04 · Sentidos</span><h3>Aromaterapia</h3><p>Aceites esenciales que acompañan la sesión, evocando calma, presencia y bienestar emocional.</p></div>
+      </article>
+      <article class="card reveal">
+        <div class="card-media crystal">
+          <svg width="86" height="86" viewBox="0 0 86 86" fill="none" stroke="#8a6fa0" stroke-width="1.4" stroke-linejoin="round"><path d="M43 8 25 34l18 44 18-44L43 8Z"/><path d="M25 34h36M43 8v70M34 21l9 13 9-13M31 55l12-21 12 21"/></svg>
+        </div>
+        <div class="card-body"><span class="num">05 · Enraizamiento</span><h3>Trabajo con cristales</h3><p>Cuando es apropiado, cristales cuidadosamente elegidos para enfocar la intención de la sesión.</p></div>
+      </article>
+      <article class="card cta-card reveal">
+        <h3>¿Lista para comenzar?</h3>
+        <p>Cada encuentro se adapta a ti. Escríbeme y diseñamos juntas tu sesión.</p>
+        <a href="#contacto" class="btn btn--ghost" style="align-self:flex-start">Agenda tu sesión</a>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- FILOSOFÍA -->
+<section class="band">
+  <div class="band-bg"></div>
+  <div class="wrap reveal">
+    <blockquote>Un espacio seguro para <em>detenerte, respirar</em> y reconectar con tu esencia.</blockquote>
+    <p class="who">Soraida Henao</p>
+  </div>
+</section>
+
+<!-- LA SESIÓN -->
+<section class="sec steps" id="sesion">
+  <div class="wrap">
+    <div class="sec-head reveal" style="margin-inline:auto;text-align:center">
+      <p class="eyebrow">Cómo es una sesión</p>
+      <h2>Tres momentos para volver a ti</h2>
+    </div>
+    <div class="step-grid">
+      <div class="step reveal">
+        <div class="ico"><svg class="ic" viewBox="0 0 24 24" style="stroke:#fff"><circle cx="12" cy="12" r="9"/><path d="M12 7v5"/></svg></div>
+        <h3>Detente</h3>
+        <p>Un espacio sereno y confidencial para hacer una pausa y dejar el ruido afuera.</p>
+      </div>
+      <div class="step reveal">
+        <div class="ico"><svg class="ic" viewBox="0 0 24 24" style="stroke:#fff"><path d="M4 12c4 0 4-5 8-5s4 5 8 5"/><path d="M4 17c4 0 4-4 8-4s4 4 8 4"/></svg></div>
+        <h3>Respira</h3>
+        <p>Meditación, respiración y energía se combinan para relajar el cuerpo y aquietar la mente.</p>
+      </div>
+      <div class="step reveal">
+        <div class="ico"><svg class="ic" viewBox="0 0 24 24" style="stroke:#fff"><path d="M12 21s-7-4.35-9.5-8.5C.5 8.5 3 5 6.5 5 9 5 12 8 12 8s3-3 5.5-3C21 5 23.5 8.5 21.5 12.5 19 16.65 12 21 12 21Z"/></svg></div>
+        <h3>Reconecta</h3>
+        <p>Vuelves a tu esencia con mayor equilibrio, claridad y una sensación de bienestar integral.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- NOTA -->
+<section class="sec note">
+  <div class="wrap reveal">
+    <div class="note-card">
+      <p class="eyebrow">Con transparencia y cariño</p>
+      <p>Cada sesión está orientada al bienestar y crecimiento personal. <strong>No sustituye la atención médica ni psicológica</strong>, sino que puede complementar esos procesos con respeto y presencia.</p>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACTO -->
+<section class="sec contact" id="contacto">
+  <div class="wrap contact-grid">
+    <div class="reveal">
+      <p class="eyebrow">Contacto</p>
+      <h2>Será un honor acompañarte</h2>
+      <p class="sub">Escríbeme para reservar tu sesión o resolver cualquier duda. Con gusto te acompaño en tu camino hacia el equilibrio.</p>
+      <div class="contact-actions">
+        <a href="https://wa.me/19087586317?text=Hola%20Soraida%2C%20me%20gustar%C3%ADa%20agendar%20una%20sesi%C3%B3n." target="_blank" rel="noopener" class="btn btn--solid">Escríbeme por WhatsApp</a>
+        <a href="mailto:soraida@latitudesouthsales.com" class="btn btn--ink">Enviar un correo</a>
+      </div>
+    </div>
+    <ul class="contact-list reveal">
+      <li><a href="https://wa.me/19087586317" target="_blank" rel="noopener">
+        <span class="ico"><svg class="ic" viewBox="0 0 24 24"><path d="M4 21l1.5-4.5A8 8 0 1 1 12 20a8 8 0 0 1-3.9-1L4 21Z"/><path d="M9 9c0 4 2 6 6 6"/></svg></span>
+        <span><span class="lbl">WhatsApp</span><span class="val">+1 908-758-6317</span></span></a></li>
+      <li><a href="tel:+15613389852">
+        <span class="ico"><svg class="ic" viewBox="0 0 24 24"><path d="M4 5c0 8 7 15 15 15l1-4-5-2-2 2c-2-1-4-3-5-5l2-2-2-5-4 1Z"/></svg></span>
+        <span><span class="lbl">Teléfono</span><span class="val">+1 561-338-9852</span></span></a></li>
+      <li><a href="mailto:soraida@latitudesouthsales.com">
+        <span class="ico"><svg class="ic" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg></span>
+        <span><span class="lbl">Correo</span><span class="val">soraida@latitudesouthsales.com</span></span></a></li>
+    </ul>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <a href="#top" class="brand">Soraida Henao<small>Bienestar &amp; Sanación</small></a>
+    <div class="fnav">
+      <a href="#sobre">Sobre mí</a>
+      <a href="#servicios">Servicios</a>
+      <a href="#sesion">La sesión</a>
+      <a href="#contacto">Contacto</a>
+    </div>
+    <small>© 2026 Soraida Henao · Bienestar, armonía y transformación interior</small>
+  </div>
+</footer>
+
+<script>
+  const io = new IntersectionObserver((entries)=>{
+    entries.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target);} });
+  },{threshold:.14, rootMargin:'0px 0px -8% 0px'});
+  document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+</script>
 </body>
 </html>
-
